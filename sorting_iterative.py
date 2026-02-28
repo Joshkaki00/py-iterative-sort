@@ -50,8 +50,15 @@ def selection_sort(items):
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
     order in front of items, and repeating until all items are in order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Repeat until all items are in sorted order
-    # TODO: Take first unsorted item
-    # TODO: Insert it in sorted order in front of items
+    Running time: O(n^2) worst case, O(n) best case when already sorted
+    Memory usage: O(1) - Sorts in place with constant extra space"""
+    # Repeat until all items are in sorted order
+    for i in range(1, len(items)):
+        # Take first unsorted item
+        current = items[i]
+        j = i - 1
+        # Insert it in sorted order in front of items
+        while j >= 0 and items[j] > current:
+            items[j + 1] = items[j]
+            j -= 1
+        items[j + 1] = current
